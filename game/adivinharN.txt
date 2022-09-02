@@ -1,0 +1,19 @@
+1 - Gerar um numero Aleatorio 1 - 100
+2 - dar 10 Tentativas ao Jogador
+3 - Verificar o numero de tentativas
+	-Se tiver tentativas continue
+	-Se não tiver tentativas Perguntar se quer novo jogo
+4 - Permitir a entrada de um Valor pelo jogador
+     - Comparar os dados
+	 -Se acertou dizer que acertou
+		 -fim de jogo -> Jogador venceu
+		 -questionar se quer nova partida
+	 -Se Errou 
+		-diz que errou e se Foi alto ou Baixo
+		-adiciona +1 ao contador de tentativas
+
+Projeto de Maquinas e Ferramentas 
+
+água quente, água fria, esgoto, águas pluviais
+que tem a parte de residencial e a parte comercial
+as vezes piscina
