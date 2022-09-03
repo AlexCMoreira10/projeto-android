@@ -6,9 +6,13 @@ var envioPalpite = document.querySelector('.envioPalpite')
 var palpite = document.querySelector('.palpite')
 var ultimoResultado = document.querySelector('.ultimoResultado')
 var baixoOuAlto = document.querySelector('baixoOuAlto')
+//Botão de Reiniciar
+var botaoReinicio = document.querySelector('#botaoReinicio')
+botaoReinicio.style.visibility = 'hidden'
+
 //Controle
 var contagemPalpites = 1
-var botaoReinicio
+
 
 campoPalpite.focus()
 
@@ -22,7 +26,7 @@ function conferirPalpite() {
         palpite.textContent += `Palpites anteriores: ` 
     }
 
-    palpite.textContent += palpiteUsuario + ' ..';
+    palpite.textContent += palpiteUsuario + ' ';
     if (palpiteUsuario == numeroAleatorio) {
         ultimoResultado.textContent = 'Voce acertou! PARABENS'
         ultimoResultado.style.backgroundColor = 'green'
@@ -55,24 +59,29 @@ envioPalpite.addEventListener('click',conferirPalpite)
 function fimDejogo() {
     campoPalpite.disabled = true
     envioPalpite.disabled = true
-    botaoReinicio = document.createElement('button')
-    botaoReinicio.innerHTML = 'Reiniciar'
-    document.body.appendChild(botaoReinicio)
+    botaoReinicio.style.visibility = 'visible'
     botaoReinicio.addEventListener('click', reiniciarJogo)
+    //ESSA FUNÇÃO REMOVIDO POIS ME FALTA CONHECIMENTO PARA NÃO QUEBRAR AS CSS!
+    /*botaoReinicio = document.createElement('button')
+    botaoReinicio.innerHTML = 'Reiniciar'
+    document.body.appendChild(botaoReinicio)*/
+    /*botaoReinicio.addEventListener('click', reiniciarJogo)*/
 }
 
 function reiniciarJogo() {
     //Retonar a contagem Para um
     contagemPalpites = 1
 
-    //
+    //REINICIA O JOGO E LIMPA A TELA DA DIV
     var reiniciarParas = document.querySelectorAll('.resultadoParas p');
     for(var i = 0 ; i < reiniciarParas.length ; i++) {
       reiniciarParas[i].textContent = '';
     }
 
     //Remove o Botão
-    botaoReinicio.parentNode.RemoveChild(botaoReinicio)
+    //botaoReinicio.parentNode.RemoveChild(botaoReinicio)
+    botaoReinicio.style.visibility = 'hidden'
+
     //Habilita o Campo e Envio de novo
     campoPalpite.disabled = false
     envioPalpite.disabled = false
@@ -81,6 +90,7 @@ function reiniciarJogo() {
 
     //Reseta a cor do campo Para branco
     ultimoResultado.style.backgroundColor = 'white'
+
     //Gera um novo Numero Aleatorio
     numeroAleatorio = Math.floor(Math.random()*100)+1
 }
